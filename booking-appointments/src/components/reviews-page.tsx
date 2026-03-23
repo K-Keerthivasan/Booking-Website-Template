@@ -12,7 +12,7 @@ export function ReviewsPage() {
   return (
     <div className="page-shell min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-20">
+      <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10 lg:py-20">
         <section className="luxury-panel rounded-[2.5rem] p-8 md:p-12">
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-plum-700)]">
             Guest sentiment

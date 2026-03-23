@@ -35,7 +35,7 @@ export function ServicesPage() {
               className={`rounded-full px-5 py-3 text-sm transition ${
                 activeCategory === category
                   ? "bg-[var(--color-plum)] text-white"
-                  : "border border-[var(--color-border)] bg-white/70 text-[var(--color-plum-900)]"
+                  : "border border-[var(--color-border)] bg-white/70 dark:bg-[rgba(23,16,48,0.70)] text-[var(--color-plum-900)]"
               }`}
             >
               {category}
@@ -43,7 +43,7 @@ export function ServicesPage() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {filteredServices.map((service) => (
             <Card key={service.id} className="rounded-[2rem] p-7">
               <div className="flex items-start justify-between gap-4">
