@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:is(.dark, .dark *));
+
+:root {
+  --background: #fef9f0;
+  --foreground: #2f2147;
+  --color-rose: #fde8e8;
+  --color-rose-strong: #f4cfd2;
+  --color-plum: #3b0764;
+  --color-plum-900: #241335;
+  --color-plum-700: #5f3b78;
+  --color-cream: #fef9f0;
+  --color-cream-strong: #f8f0e2;
+  --color-sage: #a7c4a0;
+  --color-sage-deep: #6f8e68;
+  --color-border: rgba(59, 7, 100, 0.12);
+  --shadow-luxury: 0 20px 60px rgba(59, 7, 100, 0.12);
+  --font-jost: "Jost", "Avenir Next", "Segoe UI", sans-serif;
+  --font-cormorant: "Cormorant Garamond", "Iowan Old Style", "Times New Roman", serif;
+}
+
+.dark {
+  --background: #0d0820;
+  --foreground: #f0e8f5;
+  --color-rose: #2d1424;
+  --color-rose-strong: #451d36;
+  --color-plum: #b87ee8;
+  --color-plum-900: #f0e8f5;
+  --color-plum-700: #c9a8e8;
+  --color-cream: #0d0820;
+  --color-cream-strong: #171030;
+  --color-sage: #5a8a54;
+  --color-sage-deep: #8abb84;
+  --color-border: rgba(184, 126, 232, 0.2);
+  --shadow-luxury: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jost);
+  --font-heading: var(--font-cormorant);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jost), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.font-heading {
+  font-family: var(--font-cormorant), serif;
+}
+
+.page-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(253, 232, 232, 0.9), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(167, 196, 160, 0.22), transparent 30%);
+  z-index: -1;
+}
+
+.dark .page-shell::before {
+  background:
+    radial-gradient(circle at top left, rgba(45, 20, 36, 0.6), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(90, 138, 84, 0.1), transparent 30%);
+}
+
+.luxury-panel {
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-luxury);
+}
+
+.dark .luxury-panel {
+  background: rgba(23, 16, 48, 0.85);
+}
+
+.calendar-luxury {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.calendar-luxury .react-calendar__navigation {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-luxury .react-calendar__navigation button {
+  min-width: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--color-plum-900);
+}
+
+.dark .calendar-luxury .react-calendar__navigation button {
+  background: rgba(23, 16, 48, 0.82);
+}
+
+.calendar-luxury .react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--color-plum-700);
+}
+
+.calendar-luxury .react-calendar__tile {
+  margin: 0.12rem 0;
+  border-radius: 1rem;
+  padding: 0.9rem 0.3rem;
+  color: var(--color-plum-900);
+}
+
+.calendar-luxury .react-calendar__tile--now {
+  background: rgba(167, 196, 160, 0.24);
+}
+
+.dark .calendar-luxury .react-calendar__tile--now {
+  background: rgba(90, 138, 84, 0.2);
+}
+
+.calendar-luxury .react-calendar__tile--active,
+.calendar-luxury .react-calendar__tile:hover,
+.calendar-luxury .react-calendar__tile:focus {
+  background: var(--color-plum);
+  color: white;
+}

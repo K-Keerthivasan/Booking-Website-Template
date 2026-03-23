@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v \"^\\\\.\\\\.?$\")",
+      "Bash(grep -v \"^$\")",
+      "Bash(npm install:*)"
+    ]
+  }
+}
