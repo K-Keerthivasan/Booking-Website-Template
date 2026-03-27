@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import { K2HomePopup } from "@/components/k2-home-popup";
 import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-[var(--color-cream)] text-[var(--color-plum-900)]">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <K2HomePopup />
+        </Providers>
       </body>
     </html>
   );

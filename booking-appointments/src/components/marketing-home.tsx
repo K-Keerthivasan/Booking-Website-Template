@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { SiteFooter } from "@/components/site-footer";
@@ -76,10 +77,15 @@ export function MarketingHome() {
                     cream light, blush warmth, sage calm, and rich plum contrast.
                   </p>
                 </div>
-                <div className="relative min-h-[200px] bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.95),transparent_24%),linear-gradient(180deg,rgba(59,7,100,0.1),rgba(167,196,160,0.1)),linear-gradient(135deg,#f3d6d6,#fef9f0_54%,#dbe8d8)] dark:bg-[linear-gradient(135deg,#2d1424,#171030_54%,#1a2d18)] md:min-h-auto">
-                  <div className="absolute left-8 top-10 h-40 w-32 rounded-t-[4rem] rounded-b-[1rem] border border-white/60 bg-white/30 backdrop-blur-md dark:border-white/10 dark:bg-white/5" />
-                  <div className="absolute bottom-10 left-24 h-44 w-48 rounded-[2rem] border border-white/70 bg-[rgba(255,255,255,0.36)] backdrop-blur-xl dark:border-white/10 dark:bg-[rgba(23,16,48,0.36)]" />
-                  <div className="absolute right-12 top-16 h-56 w-40 rounded-[2rem] border border-white/50 bg-[linear-gradient(180deg,rgba(59,7,100,0.18),rgba(253,232,232,0.12))] dark:bg-[linear-gradient(180deg,rgba(184,126,232,0.18),rgba(45,20,36,0.12))]" />
+                <div className="relative min-h-[200px] overflow-hidden md:min-h-auto">
+                  <Image
+                    src="https://picsum.photos/seed/veloura-spa-interior/600/480"
+                    alt="Spa interior"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[var(--color-plum)]/10" />
                 </div>
               </div>
             </Card>
@@ -146,9 +152,17 @@ export function MarketingHome() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {staffMembers.map((member) => (
               <Card key={member.id} className="overflow-hidden rounded-[2rem] p-0">
-                <div className={`h-52 bg-gradient-to-br ${member.accent} p-6`}>
-                  <div className="flex h-full items-end">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/70 bg-white/40 font-heading text-3xl text-[var(--color-plum)]">
+                <div className="relative h-52 overflow-hidden">
+                  <Image
+                    src={`https://picsum.photos/seed/${member.id}-portrait/400/208`}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 300px"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${member.accent} opacity-35`} />
+                  <div className="absolute bottom-4 left-5">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/80 bg-white/50 font-heading text-2xl text-[var(--color-plum)] backdrop-blur-sm">
                       {member.initials}
                     </div>
                   </div>
@@ -203,7 +217,7 @@ export function MarketingHome() {
                   {"★".repeat(review.rating)}
                 </p>
                 <p className="mt-4 text-base leading-8 text-[var(--color-plum-900)]">
-                  "{review.copy}"
+                  &ldquo;{review.copy}&rdquo;
                 </p>
                 <div className="mt-6 text-sm text-[var(--color-plum-700)]">
                   <p className="font-semibold text-[var(--color-plum-900)]">{review.name}</p>
@@ -227,21 +241,32 @@ export function MarketingHome() {
             </Link>
           </div>
           <div className="mt-10 grid gap-5 grid-cols-2 lg:grid-cols-4">
-            {instagramMoments.map((moment, index) => (
-              <div
-                key={moment}
-                className="luxury-panel aspect-square rounded-[2rem] border border-[var(--color-border)] bg-[linear-gradient(135deg,#fde8e8,#fef9f0_55%,#dce8d8)] dark:bg-[linear-gradient(135deg,#2d1424,#171030_55%,#1a2d18)] p-4 sm:p-5"
-              >
-                <div className="flex h-full flex-col justify-between rounded-[1.5rem] border border-white/55 dark:border-white/10 bg-white/20 dark:bg-[rgba(23,16,48,0.30)] p-4 sm:p-5">
-                  <p className="text-xs uppercase tracking-[0.32em] text-[var(--color-plum-700)]">
-                    0{index + 1}
-                  </p>
-                  <p className="font-heading text-2xl leading-tight text-[var(--color-plum-900)] sm:text-3xl">
-                    {moment}
-                  </p>
+            {instagramMoments.map((moment, index) => {
+              const seeds = ["rose-quartz-nails", "facial-linen-room", "salon-chair-florals", "tea-lounge-shelf"];
+              return (
+                <div
+                  key={moment}
+                  className="luxury-panel aspect-square overflow-hidden rounded-[2rem] relative"
+                >
+                  <Image
+                    src={`https://picsum.photos/seed/${seeds[index]}/400/400`}
+                    alt={moment}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-plum-900)]/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 p-5 flex flex-col justify-between">
+                    <p className="text-xs uppercase tracking-[0.32em] text-white/80">
+                      0{index + 1}
+                    </p>
+                    <p className="font-heading text-2xl leading-tight text-white sm:text-3xl">
+                      {moment}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </main>

@@ -5,7 +5,9 @@
       "Bash(grep -v \"^$\")",
       "Bash(npm install:*)",
       "Bash(npm run:*)",
-      "Read(//f/Dev-Projects/Booking-Website-Template/**)"
+      "Read(//f/Dev-Projects/Booking-Website-Template/**)",
+      "Bash(find F:Dev-ProjectsBooking-Website-Templatebooking-appointmentsnode_modulesnextdistdocs -name *image* -o -name *Image*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

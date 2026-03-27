@@ -4,19 +4,19 @@
 @custom-variant dark (&:is(.dark, .dark *));
 
 :root {
-  --background: #fef9f0;
-  --foreground: #2f2147;
-  --color-rose: #fde8e8;
-  --color-rose-strong: #f4cfd2;
+  --background: #f5ede0;
+  --foreground: #1e1030;
+  --color-rose: #fcd9d9;
+  --color-rose-strong: #f5bec2;
   --color-plum: #3b0764;
-  --color-plum-900: #241335;
-  --color-plum-700: #5f3b78;
-  --color-cream: #fef9f0;
-  --color-cream-strong: #f8f0e2;
-  --color-sage: #a7c4a0;
-  --color-sage-deep: #6f8e68;
-  --color-border: rgba(59, 7, 100, 0.12);
-  --shadow-luxury: 0 20px 60px rgba(59, 7, 100, 0.12);
+  --color-plum-900: #1e1030;
+  --color-plum-700: #5a3470;
+  --color-cream: #f5ede0;
+  --color-cream-strong: #ede0ce;
+  --color-sage: #8fb888;
+  --color-sage-deep: #5c7e56;
+  --color-border: rgba(59, 7, 100, 0.18);
+  --shadow-luxury: 0 4px 20px rgba(59, 7, 100, 0.10), 0 12px 48px rgba(59, 7, 100, 0.10);
   --font-jost: "Jost", "Avenir Next", "Segoe UI", sans-serif;
   --font-cormorant: "Cormorant Garamond", "Iowan Old Style", "Times New Roman", serif;
 }
@@ -56,6 +56,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-jost), sans-serif;
+  padding-top: var(--k2-demo-top-offset, 0);
+  padding-bottom: var(--k2-demo-bottom-offset, 0);
+}
+
+@keyframes k2pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
 }
 
 a {
@@ -85,8 +98,9 @@ textarea {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at top left, rgba(253, 232, 232, 0.9), transparent 38%),
-    radial-gradient(circle at bottom right, rgba(167, 196, 160, 0.22), transparent 30%);
+    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(252, 217, 217, 0.55), transparent),
+    radial-gradient(ellipse 50% 35% at 100% 100%, rgba(143, 184, 136, 0.22), transparent),
+    radial-gradient(ellipse 40% 30% at 55% 20%, rgba(245, 237, 224, 0.45), transparent);
   z-index: -1;
 }
 
@@ -98,7 +112,7 @@ textarea {
 
 .luxury-panel {
   border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-luxury);
 }
